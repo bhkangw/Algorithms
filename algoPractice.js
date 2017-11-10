@@ -314,7 +314,7 @@ function IsSuperVocalic(str){ // above still returns true if it has multiple vow
 		"i": 0,
 		"o": 0,
 		"u": 0;
-	};
+	}
 	for(var k in vow){
 		for(var j = 0; j < str.length; j++){
 			if(k == str[j]){
@@ -340,15 +340,177 @@ function CommonSuffix(array){ // checks if the all strings in the array share a 
 
 }
 
+// November 3 
 
+// Introducing linked list!
 
+function SLNode(v){ // function to create a new node class
+	this.val = v
+	this.next = null;
+}
 
+function SLList(){ // function to create a new list class
+	this.head = null;
+	this.AddToFront = function(num){ // function to [Add a New Node to the Front] <-- Today's algorithm question
+		var newNode = SLNode(num)
+		if(this.head == null){ // if statement not necessary at all. only helpful for own visualization of logic.
+			this.head = newNode;
+			return this;
+		}
+		newNode.next = this.head; // this statement is key: always sets the new node to whatever the head was pointing to
+		this.head = newNode; // and then sets the head to point to the new node
+		return this
+	}
+}
 
+// November 6
 
+function SLList(val){
+	this.head = null;
+	this.contains = function(v){ // first function: find if the link list CONTAINS value v
+		var runner = this.head;
+		if(this.head == null){
+			return false;
+		}
+		while(runner.next){ // aka while(runner.next !== null)
+			if(runner.val == v){
+				return true;
+			}
+			runner = runner.next;
+		}
+		return false;
+	}
+	this.max = function(){ // second function: find the MAX value in a link list
+		var runner = this.head;
+		var max = runner.val;
+		if(this.head == null){
+			return null;
+		}
+		while(runner.next){
+			if(max < runner.next.val){
+				max = runner.next.val;
+			}
+			runner = runner.next
+		}
+		return max;
+	}
+	this.size = function(){ // third function: return the SIZE of the link list
+		var runner = this.head;
+		var size = 0;
+		if(this.head == null){
+			return size
+		}
+		while(runner.next){
+			count++
+		}
+		return count;
+	}
+	this.size = function(){ // third function: alternate method, checking if runner == null instead of runner.next
+		var runner = this.head;
+		var size = 0;
+		while(runner !== null){
+			count++
+			runner = runner.next;
+		}
+		return count;
+	}
+}
 
+// November 7
 
+function SLNode(v){ // need to create the function for when we call on it in the AddToBack function
+	this.val = v;
+	this.next = null;
+}
 
+function SLList(){ // creating the new list class
+	this.head = null;
+	this.AddToBack = function(v){ // add a node to the back of the list
+		var runner = this.head;
+		while(runner.next ! == null){
+			runner = runner.next
+		}
+		runner.next = new SLNode(v); // creating a new node by making an instance of the class
+	}
 
+	this.RemoveBack = function(){ // remove a node from the back of the list
+		var runner = this.head;
+		while(runner){
+			runner = runner.next // don't forget this! in order to iterate through the list
+			if(runner.next.next == null){ // checking two nodes ahead
+				runner.next = null;
+			}
+			if(this.head.next == null){ // corner case when there is only one node
+				this.head = null;
+			}
+		}
+	}
+
+	this.RemoveFront = function(){ // remove the first node from the list
+		this.head = this.head.next;
+	}
+}
+
+// Novemeber 8
+
+function MaxToBack(){ // find the node with the max value and move that node to the back of the list
+	var runner = this.head;
+	var max = this.head;
+	var beforemax;
+	while (runner.next! = null){
+		if(runner.next.val > max.val){
+			beforemax = runner; // must grab BOTH the node of the max as well as the node before (for the pointer)
+			max = runner.next; // sets the variable max as the node with the max value
+		}
+		runner = runner.next;
+	}
+	if(runner.next == null){
+		runner.next = max;
+		beforemax.next = max.next; // must set this pointer before setting max.net to null
+		max.next = null;
+	}
+	if(this.head = max){ // edge case in case the max value is the first node
+		this.head = this.head.next;
+	}
+}
+
+function InsertBefore(val, before){ // create a node with value val and insert it before the specified node
+
+}
+
+// November 9
+
+function SLNode(v){ // function to create a node for InsertAfter
+	this.val = v;
+	this.next = null;
+}
+
+function InsertAfter(val, after){ // create a node with value val and insert it AFTER the specified node
+	var runner = this.head;
+	var newnode = SLNode(after)
+	var found;
+	while(runner.next != null){
+		if(runner.val == after){
+			found = runner
+		}
+		runner = runner.next
+	}
+	newnode.next = temp.next
+	temp.next = newnode
+}
+
+function RemoveVal(val){ // remove any instance of a node with the value of val from the list
+	var runner = this.head
+	if(this.head.val == val){
+		this.head = this.head.next
+	}
+	while(runner.next.next != null){
+		if(runner.next.val == val){
+			runner.next = runner.next.next
+		}
+	runner = runner.next
+	}
+}
 
 
 
