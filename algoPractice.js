@@ -649,7 +649,7 @@ function QueueFromStacks(){ // add and remove from a queue that uses stacks excl
 
 function Stack(){ // only written for use by above function 
 	this.data = []
-	this.add - function(v){
+	this.add = function(v){
 		this.data[this.data.length] = v
 	}
 	this.remove = function(v){
@@ -661,6 +661,35 @@ function Stack(){ // only written for use by above function
 		return this.data.length
 	}
 }
+
+
+// November 27
+
+function SLList(){ // creating the new list class
+	this.head = null;
+	this.reverse = function(){ // reverse a linked list
+
+	}
+	this.IsPalindrome = function(){ // check if a list is palindrome
+
+	}
+
+
+// November 28
+
+function SLList(){
+	this.head = null;
+	this.KthFromLast = function(){ // find the value of the Kth node from the last
+
+	}  
+}
+
+
+
+
+
+
+
 
 
 
