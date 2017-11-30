@@ -684,6 +684,18 @@ function SLList(){
 	}  
 }
 
+// November 29
+
+function SumOfList(s1, s2){ // given two lists, create a third list representing the sum of the two list values
+	// ie [3]-[5]-[8]-[4] and [2]-[1]-[1] = [3]-[7]-[9]-[5]
+
+}
+
+function SumOfListReverse(s1, s2){ // same as above but in reverse
+	// ie [3]-[5]-[8]-[4] and [2]-[1]-[1] = [5]-[6]-[9]-[4]
+
+}
+
 
 
 
