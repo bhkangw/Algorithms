@@ -759,12 +759,21 @@ function DLList(){
 // Introducing Recursion
 
 function rSigma(n){ 
-
+	if(n == 1){
+		return 1;
+	}
+	return n+rSigma(n-1);
 }
 
 function rFactorial(n){
-
+	if(n == 1){
+		return 1;
+	}
+	return n*rFactorial(n-1);
 }
+
+
+
 
 
 
