@@ -803,6 +803,11 @@ function rBinarySearch(arr, val, start = 0, end = arr.length-1){
 	}
 }
 
+// December 7
+
+function rTribonacci(n){
+	
+}
 
 
 
