@@ -665,7 +665,7 @@ function Stack(){ // only written for use by above function
 
 // November 27
 
-function SLList(){ // creating the new list class
+function SLList(){
 	this.head = null;
 	this.reverse = function(){ // reverse a linked list
 
@@ -680,6 +680,8 @@ function SLList(){ // creating the new list class
 function SLList(){
 	this.head = null;
 	this.KthFromLast = function(){ // find the value of the Kth node from the last
+		// have two runners, and once the first one gets to be Kth distance from the beginning, start the second runner.
+		// once the first runner hits the end, the second runner will be the Kth from last.
 
 	}  
 }
@@ -696,10 +698,73 @@ function SumOfListReverse(s1, s2){ // same as above but in reverse
 
 }
 
+// November 30
 
+// return if list is in an infinite loop; true or false
+	// have a runner moving 1 node/iteration and a jumper moving 2 nodes/iteration
+	// if the nodes ever meet, then the list is in a loop
+// if loop, return which node the loop starts
+	// once the runner the jumper meet, reset the runner to the beginning and have them continue through the rest of the list AT THE SAME PACE
+	// they will meet back at the point where the loop first occurs
 
+// December 1
 
+// Introducing Doubly-Linked Lists
+// A DLList has nodes with both .next and .prev
 
+function DLNode(v){ // doubly linked node class
+	this.val = v;
+	this.next = null;
+	this.prev = null;
+}
+
+function DLList(){
+	this.head = null;
+	this.tail = null;
+	this.Reverse = function(){ // reverse a doubly linked list
+		var runner = this.tail
+		var temp;
+		while(runner!=null){
+			temp = runner.next;
+			runner.next = runner.prev;
+			runner.prev = temp;
+			runner = runner.next;
+		}
+		temp = this.head;
+		this.head = this.tail;
+		this.tail = temp;
+	}
+	this.AddToFront = function(v){ // add to front of a doubly linked list
+		var newnode = DLNode(v);
+		newnode.next = this.head;
+		this.head.prev = newnode;
+		this.head = newnode;
+	}
+	this.AddToBack = function(v){ // add to back of a doubly linked list
+		var newnode = DLNode(v);
+		newnode.prev = this.tail;
+		this.tail.next = newnode;
+		this.tail = newnode;
+	}
+	this.AddAt = function(index, v){ // add at a specific position in a doubly linked list
+		var newnode = DLNode(v);
+
+	}
+	this.AddAtCenter = function(v){ // add to center of a doubly linked list
+
+	}
+}
+
+// December 4
+// Introducing Recursion
+
+function rSigma(n){ 
+
+}
+
+function rFactorial(n){
+
+}
 
 
 
