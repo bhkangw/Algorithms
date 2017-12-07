@@ -784,7 +784,24 @@ function rFibonacci(n){
 	return rFibonacci(n-1) + rFibonacci(n-2)
 }
 
+// December 6
+// Introducing Memoization
 
+function rBinarySearch(arr, val, start = 0, end = arr.length-1){
+	var num = arr[arr.length-1].Math.floor
+	if(num == val){
+		return true;
+	}
+	if(num > val){
+		rBinarySearch(arr, val, start, end = num);
+	}
+	if(num < val){
+		rBinarySearch(arr, val, start = num, end);
+	}
+	if(start == end) {
+		return false;
+	}
+}
 
 
 
