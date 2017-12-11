@@ -803,9 +803,101 @@ function rBinarySearch(arr, val, start = 0, end = arr.length-1){
 	}
 }
 
+// December 7
 
+function floodfill(arr, startpoint, ogcolor, color){ 
+// given a multidimensional array, change the initial value (ogcolor) of the startpoint and any adjacent like-values to color
+	var x = startpoint[0]
+	var y = startpoint[1]
+	var ogcolor = arr[startpoint]
+	if( arr[x+1,y] != ogcolor && arr[x-1,y] != ogcolor &&
+		arr[x,y+1] != ogcolor && arr[x,y-1] != ogcolor){
+	arr[startpoint] = color;
+	return
+	}
+	arr[startpoint] = color;
+	
+}
 
+// December 8
 
+function rLLLength(node, count = 0){ // print the length of a linked list with recursion, assuming node = head
+	if(node){
+		count++
+		rLLLength(node.next);
+	}
+}
+
+function rPrintAllVals(node){ // print the values of a linked list with recursion
+	if(node){
+		console.log(node.val);
+		rPrintAllVals(node.next);
+	}
+}
+
+function rPrintAllValsReverse(node){ // print the values of a linked list with recursion
+	if(node){
+		rPrintAllValsReverse(node.next);
+		console.log(node.val);
+	}
+}
+
+// December 11
+
+// back to strings
+
+function GetSubStr(str, start, end){ // creating my own GetSubStr function for use in functions below
+	var s = "";
+	for(var i = start; i < end; i++){
+		s += str[i];
+	}
+	return s;
+}
+
+function StringToWordArray(str){ // convert a string "This is a string" to an array of words ["This", "is", "a", "string"]
+	var s = 0;
+	var arr = [];
+	for(var i = 0; i < str.length; i++){
+		if(str[i] == " "){
+			arr.push(GetSubStr(str,s,i));
+			s = i
+		}
+	}
+	arr.push(GetSubStr(str,s,str.length-1));
+	return arr;
+}
+
+function ReverseWordOrder(str){ // reverse the word order of a string "This is a string" -> "string a is This"
+	var s = str.length-1;
+	var rStr = "";
+	for(var i = str.length-1; i >= 0; i--){
+		if(str[i] = " "){
+			rStr += GetSubStr(str,s,i);
+			s = i;
+		}
+	}
+	rStr += GetSubStr(str,s,0);
+	return rStr;
+}
+
+function LongestWord(str){ // return the longest word of a string ie. "This is a string" returns "string"
+	var longestWord = "";
+	var s = 0;
+	for(var i = 0; i < str.length; i++){
+		if(str[i] = " "){
+			var testStr = GetSubStr(str,s,i);
+			s = i;
+			if(longestword.length <= testStr.length){
+				longestWord = testStr;
+			}
+		}
+	}
+	lastWord = GetSubStr(str,s,str.length-1);
+	if(longestWord <= lastWord){
+		longestWord = lastWord
+	}
+	return longestWord;
+}
 
 
 
