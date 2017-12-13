@@ -899,7 +899,40 @@ function LongestWord(str){ // return the longest word of a string ie. "This is a
 	return longestWord;
 }
 
+// December 12
 
+function GetSubStr(str, start, end){ // creating my own GetSubStr function for use in functions below
+	var s = "";
+	for(var i = start; i < end; i++){
+		s += str[i];
+	}
+	return s;
+}
 
+function RotateString(str, num){ // ("Big Baller", 3) -> "lerBig Bal"
+	if(num > str.length){
+		num = num % str.length;
+	}
+	var newstr = ""
+	newstr += GetSubStr(str, str.length-num, str.length-1) // specify the index? or the value? ie. str[str.length-num]
+	newstr += GetSubStr(str, 0, str.length-num-1)
+	return newstr;
+}
 
+function Censor(str, words){ // ("Today is not Tuesday",["day", "not"]) -> "Toxxx is xxx Tuesxxx"
+	var newstr = "";
+	for(var word in words){
+		var wordsize = word.length;
+		for(var i = 0; i < str.length; i++){
+			if(GetSubStr(str, i, wordsize) == word){
+				GetSubStr(str, i, wordsize) = "xxx"
+				newstr += GetSubStr(str, i, wordsize);
+				i += wordsize;
+			}
+			else{
+				newstr += str[i];
+			}
+		}
+	}
+}
 
