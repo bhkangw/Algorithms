@@ -924,7 +924,7 @@ function Censor(str, words){ // ("Today is not Tuesday",["day", "not"]) -> "Toxx
 	for(var word in words){
 		var wordsize = word.length;
 		for(var i = 0; i < str.length; i++){
-			if(GetSubStr(str, i, wordsize) == word){
+			if(GetSubStr(str, i, wordsize).toLowerCase() == word.toLowerCase()){
 				GetSubStr(str, i, wordsize) = "xxx"
 				newstr += GetSubStr(str, i, wordsize);
 				i += wordsize;
