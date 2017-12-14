@@ -30,7 +30,7 @@ function Reverse(arr){ //reverse the array
 	for(var i = 0; i < arr.length/2; i++){
 		var temp = arr[i];
 		arr[i] = arr[arr.length-1-i];
-		arr.length-1-i = temp;
+		(arr.length-1-i) = temp;
 	}
 	return	arr
 }
@@ -101,6 +101,7 @@ function Zip(arr1,arr2){ // v2 more efficient
 	for(var i = 0; i < arr1.length; i++){
 		obj(arr1[i]) = arr2[i];
 	}
+}
 
 
 function UnZip(obj){ // v1 given an object with two arrays, print both arrays separately
@@ -299,7 +300,7 @@ function IsSuperVocalic(str){ // return if the word has each vowel (and ONLY one
 			}
 		}
 	}
-	if vow = []{
+	if(vow = []){
 		return true
 	}
 	else{
@@ -313,7 +314,7 @@ function IsSuperVocalic(str){ // above still returns true if it has multiple vow
 		"e": 0,
 		"i": 0,
 		"o": 0,
-		"u": 0;
+		"u": 0,
 	}
 	for(var k in vow){
 		for(var j = 0; j < str.length; j++){
@@ -327,7 +328,7 @@ function IsSuperVocalic(str){ // above still returns true if it has multiple vow
 		"e": 1,
 		"i": 1,
 		"o": 1,
-		"u": 1;
+		"u": 1,
 	}){
 		return true
 	}
@@ -673,6 +674,7 @@ function SLList(){
 	this.IsPalindrome = function(){ // check if a list is palindrome
 
 	}
+}
 
 
 // November 28
@@ -943,4 +945,29 @@ function Censor(str, words){ // ("Today is not Tuesday",["day", "not"]) -> "Toxx
 function BinaryStringExansion(str){ // ie "H?LL?" -> ["H1ll1", "H0ll0", "H0ll1", "H1ll0"]
 
 }
+
+// December 14
+
+function GetSubStr(str, start, end){ // creating my own GetSubStr function for use in function below
+	var s = "";
+	for(var i = start; i < end; i++){
+		s += str[i];
+	}
+	return s;
+}
+
+function InOrderSubsets(str, sub = "", results = []){
+	if(str.length == 0){
+		results.push(sub)
+	}
+	InOrderSubsets(GetSubStr(str, 1, str.length-1), sub += str[0], results)
+	InOrderSubsets(GetSubStr(str, 1, str.length-1), sub, results)
+	return results;
+}
+
+
+
+
+
+
 
