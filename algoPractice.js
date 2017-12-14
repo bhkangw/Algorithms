@@ -936,3 +936,11 @@ function Censor(str, words){ // ("Today is not Tuesday",["day", "not"]) -> "Toxx
 	}
 }
 
+// December 13
+
+// Reintroducing recursion with strings
+
+function BinaryStringExansion(str){ // ie "H?LL?" -> ["H1ll1", "H0ll0", "H0ll1", "H1ll0"]
+
+}
+
