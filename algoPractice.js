@@ -942,8 +942,29 @@ function Censor(str, words){ // ("Today is not Tuesday",["day", "not"]) -> "Toxx
 
 // Reintroducing recursion with strings
 
-function BinaryStringExansion(str){ // ie "H?LL?" -> ["H1ll1", "H0ll0", "H0ll1", "H1ll0"]
+function BinaryStringExansion(str, results = []){ // ie "H?LL?" -> ["H1ll1", "H0ll0", "H0ll1", "H1ll0"]
+	if(!str.contains("?")){
+		return results;
+	}
+	var str0 = "";
+	var str1 = "";
 
+	// while(str[i] != "?"){
+
+	// }
+
+
+
+	for(var i = 0; i < str.length; i++){ // loop through str to find ?s
+		if(str[i] == "?"){ // if ? is found
+			str0 += 0; // replace with 0 to str0
+			str1 += 1; // replace with 1 to str1
+		}
+		str0 += str[i]; // if value is not a ? add the value to both strings
+		str1 += str[i];
+	}
+	BinaryStringExansion(str0, results) // pass in updated strings
+	BinaryStringExansion(str1, results)
 }
 
 // December 14
@@ -965,7 +986,7 @@ function InOrderSubsets(str, sub = "", results = []){
 	return results;
 }
 
-
+// console.log(InOrderSubsets("ned")) how to test! run the file by typing node {file name} into terminal
 
 
 
