@@ -1014,4 +1014,15 @@ function BST(){
 	}
 }
 
+// December 19
+
+function BSTNode(val) {
+	this.val = val;
+	this.left = null;
+	this.right = null;
+}
+
+function BSTHeight(node = this.root){ // return the max height of the BST
+
+}
 
