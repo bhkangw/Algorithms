@@ -1023,6 +1023,15 @@ function BSTNode(val) {
 }
 
 function BSTHeight(node = this.root){ // return the max height of the BST
-
+	if(node == null)
+		return 0
+	var left = this.BSTHeight(node.left)
+	var right = this.BSTHeight(node.right)
+	// if(left > right)
+	// 	return left +1
+	// else{
+	// 	return right +1
+	// }
+	return Math.max(left,right)+1
 }
 
