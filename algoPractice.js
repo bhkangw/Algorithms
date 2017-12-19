@@ -988,7 +988,30 @@ function InOrderSubsets(str, sub = "", results = []){
 
 // console.log(InOrderSubsets("ned")) how to test! run the file by typing node {file name} into terminal
 
+// December 18
 
+// Introducing Binary Search Trees
 
+function BSTNode(val){
+	this.val = val;
+	this.left = null;
+	this.right = null;
+}
+
+function BST(){
+	this.root = null;
+	this.add = function(val){ // adds a value to the tree where appropriate
+
+	}
+	this.contains = function(val){ // returns boolean if value is present in the BST
+
+	}
+	this.min = function(){ // returns the min value of the BST
+		
+	}
+	this.max = function(){ // returns the max value of the BST
+
+	}
+}
 
 
