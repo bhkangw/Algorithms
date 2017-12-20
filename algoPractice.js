@@ -1037,8 +1037,14 @@ function BSTHeight(node = this.root){ // return the max height of the BST
 
 // December 20
 
-function arrayToBST(arr){ // return a balanced BST
-	
+function arrayToBST(arr, BST = new BST()){ // return a balanced BST from a sorted array
+	if(arr.length == 0){
+		return
+	}
+	BST.add(Math.floor(arr/2));
+	arrayToBST(arr.slice(0,arr/2), BST);
+	arrayToBST(arr.slice(arr/2+1, arr.length), BST);
+	return BST;
 }
 
 function isBalanced(arr){ // return boolean if BST is balanced (max height differs < 1)
