@@ -1050,3 +1050,6 @@ function arrayToBST(arr, BST = new BST()){ // return a balanced BST from a sorte
 function isBalanced(arr){ // return boolean if BST is balanced (max height differs < 1)
 
 }
+
+// December 21
+
