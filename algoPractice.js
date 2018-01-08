@@ -1,3 +1,30 @@
+function fibonacci(num) {
+	if (num <= 1) return 1;
+
+	return fibonacci(num - 1) + fibonacci(num - 2);
+}
+
+
+
+
+
+function fibonacci(num) {
+	var a = 1, b = 0, temp;
+
+	while (num >= 0) {
+		temp = a;
+		a = a + b;
+		b = temp;
+		num--;
+	}
+
+	return b;
+}
+
+
+
+
+
 // October 18
 
 function PopFront(arr){ //pop the first value of the array out of the array
@@ -1051,5 +1078,19 @@ function isBalanced(arr){ // return boolean if BST is balanced (max height diffe
 
 }
 
-// December 21
+// January 8
 
+function bubbleSort(arr){
+	let n = arr.length;
+	let temp;
+	while(n > 1){
+		for(let i = 0; i < n - 1; i ++){
+			if(arr[i] > arr[i+1]){
+				temp = arr[i];
+				arr[i] = arr[i+1];
+				arr[i+1] = temp;
+			}
+		}
+		n--
+	}
+}
