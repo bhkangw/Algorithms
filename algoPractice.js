@@ -1028,8 +1028,33 @@ function BSTNode(val){
 function BST(){
 	this.root = null;
 	this.add = function(val){ // adds a value to the tree where appropriate
-
+		if(!this.root){ // if this.root is null, 
+			this.root = new BSTNode(val) // set this.root to a new node with val
+			return
+		}
+		var runner = root; // setting runner to root
+		while(runner){ // while runner is not null
+			if(val < runner.val){ // if val < runner.val
+				if(!runner.left){ // and runner.left is null
+					runner.left = BSTNode(val); // create new node with val 
+					break
+				}
+				else{ // if runner.left is not null
+					runner = runner.left // change runner to runner.left
+				}
+			}
+			else{ // if val is not less than runner.val
+				if(!runner.right){ // and runner.right is null
+					runner.right = BSTNode(val); // create new node with val
+					break
+				}
+				else{ // if runner.right is not null
+					runner = runner.right; // change runner to runner.right
+				}
+			}
+		}
 	}
+	
 	this.contains = function(val){ // returns boolean if value is present in the BST
 
 	}
