@@ -1056,7 +1056,19 @@ function BST(){
 	}
 	
 	this.contains = function(val){ // returns boolean if value is present in the BST
-
+		let node = this.root
+		while(node){
+			if(node.val == val){
+				return true;
+			}
+			if(node.val < val){
+				node = node.right;
+			}
+			if(node.val > val){
+				node = node.left;
+			}
+		}
+		return false;
 	}
 	this.min = function(){ // returns the min value of the BST
 		
@@ -1118,4 +1130,28 @@ function bubbleSort(arr){
 		}
 		n--
 	}
+}
+
+// January 10
+
+function swap(arr, i, j){
+
+}
+
+function partition(arr){
+	let j = 0
+	let val = arr[arr.length-1];
+	for(let i = 0; i < arr.length; i++){
+		if(arr[i] <= val){
+			swap(arr.i,j);
+			j++
+		}
+	}
+	return j;
+}
+
+// January 11
+
+function quicksort(arr, start = 0, end = arr.length-1){
+	
 }
