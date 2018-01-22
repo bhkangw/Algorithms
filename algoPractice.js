@@ -1135,7 +1135,9 @@ function bubbleSort(arr){
 // January 10
 
 function swap(arr, i, j){
-
+	let temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
 }
 
 function partition(arr){
@@ -1154,4 +1156,100 @@ function partition(arr){
 
 function quicksort(arr, start = 0, end = arr.length-1){
 	
+}
+
+// January 12
+
+// January 15
+
+// January 16
+
+// January 17
+
+// January 18
+
+class MinHeap { // construct a minheap class and include an add/insert function
+	constructor(){
+		this.heap = [];
+		this.add = function(val){ // add into heap function
+			this.heap.push(val);
+			if(this.heap.length == 1){
+				return this.heap;
+			}
+			let n = this.heap.length - 1;
+			while(this.heap[n] < this.heap[Math.trunc(n/2)]){
+				swap(this.heap, n, Math.trunc(n / 2));
+				n = Math.trunc(n / 2);
+			}
+			return this.heap;
+		}
+	}
+}
+
+// January 19
+
+function ExtractFromHeap(heap) { // verified! remove and return the min value of a minheap, retain heap properties of array
+	swap(heap, 0, heap.length - 1);
+	let n = 0;
+	let min = heap.pop();
+	while (heap[n] > heap[2 * n + 1] || heap[n] > heap[2 * n + 2]) {
+		if (heap[2 * n + 1] < heap[2 * n + 2]) {
+			swap(heap, n, 2 * n + 1)
+			n = 2 * n + 1
+		}
+		else {
+			swap(heap, n, 2 * n + 2)
+			n = 2 * n + 2
+		}
+	}
+	return min;
+}
+
+function Heapify(arr, n = 0, min = 0){
+	if (2*n + 1 >= arr.length - 1 && 2*n + 2 >= arr.length-1) {
+		swap(arr, min, Math.trunc((n-1)/2));
+		return arr;
+	}
+	if (arr[n] < arr[2*n+ 1] && 2*n + 1 <= arr.length-1) {
+		// swap(arr, arr[n], arr[2 * n + 1])
+		min = 2*n + 1
+		n = 2*n + 1
+	}
+	else if (arr[n] < arr[2*n + 2] && 2*n + 2 <= arr.length-1) {
+		// swap(arr, arr[n], arr[2*n + 2])
+		min = 2*n + 2
+		n = 2*n + 2
+	}
+	Heapify(arr, n = 2*n + 1)
+	Heapify(arr, n = 2*n + 2)
+}
+
+// attempt at heapify with connor mikey
+
+function swap(arr, i, j) { 
+	let temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
+}
+
+function Repair(arr, p) {
+	while (2 * p + 1 < arr.length - 1 || 2 * p + 2 < arr.length - 1) {
+		if (2 * p + 2 < arr.length - 1 && arr[2 * p + 2] < arr[2 * p + 1]) {
+			swap(arr, p, 2 * p + 2);
+			p = 2 * p + 2;
+		}
+		else {
+			swap(arr, p, 2 * p + 1);
+			p = 2 * p + 1
+		}
+	}
+}
+
+function Heapify(arr) {
+	let p = Math.trunc((arr.length - 2) / 2)
+	while (p >= 0) {
+		Repair(arr, p);
+		console.log(arr)
+		p--
+	}
 }
