@@ -1253,3 +1253,71 @@ function Heapify(arr) {
 		p--
 	}
 }
+
+// January 23
+
+function Hashing(str){ // create a hash table given a string
+
+}
+
+// January 24
+
+function retrieveHash(str){ // retrieve and return the value of a hashed object in HT
+
+}
+
+// Leap interview questions from Christian
+
+function getDigits(str){ // given "s8f75d8s9f62" return 8758962
+	let newstr;
+	for(let i = 0; i < str.length; i++){
+		if(typeof(str[i]) === "number"){
+			newstr += str[i]
+		}
+	}
+	return parseInt(newstr)
+}
+
+function getDigits(str){ // given "s8f75d8s9f62" return 8758962
+	let sum;
+	for(let i = 0; i < str.length; i++){
+		if(typeof +str[i] === "number"){
+			sum = (sum * 10) + +str[i]
+		}
+	}
+	return sum
+}
+
+function isPalindrome(str){ // check to see if str is palindome, return true false
+
+}
+
+function romanNumToNum(str) { // given a valid string return the value as an integer, using dictionary in convert function below
+	let sum = 0;
+	for(let i = 0; i < str.length; i++){
+		if(convert(str[i]) < convert(str[i+1])){ // if next roman num value is less than current,
+			sum += convert(str[i+1]) - convert(str[i]) // subtract them to get true value
+			i++ // skip the next roman num as it's accounted for
+			continue // ignore the rest of the for loop and restart from the top
+		}
+		sum += convert(str[i]); // if the next roman num is NOT less than current, add the current val to sum
+	}
+	return sum;
+}
+
+function convert(key) { // using the dictionary to convert
+	var dict = {
+		"M": 1000,
+		"D": 500,
+		"C": 100,
+		"L": 50,
+		"X": 10,
+		"V": 5,
+		"I": 1,
+	}
+	return dict[key]; // locate and return the value of the passed through KEY (roman num value)
+}
+
+function removeSLL(val){ // remove a node given a value, if multiple remove first.
+
+}
