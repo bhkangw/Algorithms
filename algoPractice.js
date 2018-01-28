@@ -1224,7 +1224,7 @@ function Heapify(arr, n = 0, min = 0){
 	Heapify(arr, n = 2*n + 2)
 }
 
-// attempt at heapify with connor mikey
+// attempt at heapify 
 
 function swap(arr, i, j) { 
 	let temp = arr[i];
@@ -1263,6 +1263,12 @@ function Hashing(str){ // create a hash table given a string
 // January 24
 
 function retrieveHash(str){ // retrieve and return the value of a hashed object in HT
+
+}
+
+// Janurary 25
+
+function rehash(){ // rehash a hash table with a larger capacity e.g. when load factor hits 70%
 
 }
 
