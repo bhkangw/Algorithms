@@ -1158,13 +1158,85 @@ function quicksort(arr, start = 0, end = arr.length-1){
 	
 }
 
+
 // January 12
 
-// January 15
+function merge(arr1, arr2) {
+	let newarr = [];
+	let x = 0; // counter for the first array
+	let y = 0; // counter for the second array
+	while (x < arr1.length && y < arr2.length) { // until one counter hits the end of an array
+		if (arr1[x] < arr2[y]) { // whichever is smaller, push to newarr
+			newarr.push(arr1[x])
+			x++ // move up the counter
+		}
+		else {
+			newarr.push(arr2[y])
+			y++
+		}
+	}
+	let lastArray; // keep track of which array still has values
+	let lastIndex; // keep track of where the last index we pushed was
+	if (x < arr1.length) { // if x < arr1.length, then we know there are still values there
+		lastArray = arr1;
+		lastIndex = x;
+		for (lastIndex; lastIndex < lastArray.length; lastIndex++) { // for where the lastIndex is, loop through the rest of the array
+			newarr.push(lastArray[lastIndex]) // and push each value to newarr
+		}
+	}
+	if (y < arr2.length) { // necessary to repeat for y and arr2 as well??
+		lastArray = arr2;
+		lastIndex = y;
+		for (lastIndex; lastIndex < lastArray.length; lastIndex++) {
+			newarr.push(lastArray[lastIndex])
+		}
+	}
+	return newarr // returns the newarr
+}
+
+function mergeSort(arr) { // uses merge function above
+	if (arr.length <= 1) { // base case: when the array size is 1
+		return arr
+	}
+	let arr1 = arr.slice(0, Math.floor(arr.length / 2)) // split the array in half
+	let arr2 = arr.slice(Math.floor(arr.length / 2) + 1, arr.length - 1) // split the array into the other half
+	mergeSort(arr1) // will keep splitting in half until base case
+	mergeSort(arr2)
+	return merge(arr1, arr2) // then merge will combine the split up arrays together SORTED and return newarr
+}
 
 // January 16
 
+function outerSectionSet(arr1, arr2) { // merge two arrays and leave out any duplicates
+	let newarr = []
+	let dict = {}
+	for (let i = 0; i < arr1.length; i++) {
+		dict[arr[i]] = dict[arr[i]]
+	}
+	for (let j = 0; j < arr2.length; j++) {
+		dict[arr[j]] = dict[arr[j]]
+	}
+	for (let val of dict) {
+		newarr.push(val)
+	}
+	return newarr
+}
+
 // January 17
+
+function innerSectionSet(arr1, arr2) { // merge two arrays ONLY with the values shared by both
+	let newarr = []
+	let dict = {}
+	for (let i = 0; i < arr1.length; i++) {
+		dict[arr[i]] = 1
+	}
+	for (let j = 0; j < arr2.length; j++) {
+		if (dict[arr[j]] == 1) {
+			newarr.push(arr[j])
+		}
+	}
+	return newarr
+}
 
 // January 18
 
