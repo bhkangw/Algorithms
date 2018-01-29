@@ -1338,7 +1338,7 @@ function retrieveHash(str){ // retrieve and return the value of a hashed object 
 
 }
 
-// Janurary 25
+// January 25
 
 function rehash(){ // rehash a hash table with a larger capacity e.g. when load factor hits 70%
 
@@ -1398,4 +1398,43 @@ function convert(key) { // using the dictionary to convert
 
 function removeSLL(val){ // remove a node given a value, if multiple remove first.
 
+}
+
+// January 29
+
+function BSTnode(val){
+	this.val = val;
+	this.left = null;
+	this.right = null;
+}
+
+function BST(){ // review on how to add to a BST
+	this.root = null;
+	this.prototype.add = function(val){
+		if(!this.root){
+			this.root = new BSTnode(val);
+			return;
+		}
+		let runner = this.root;
+		while(runner){
+			if(val < runner.val){
+				if(!runner.left){
+					runner.left = new BSTnode(val);
+					break;
+				}
+				else{
+					runner = runner.left;
+				}
+			}
+			else{
+				if(!runner.right){
+					runner.right = new BSTnode(val);
+					break;
+				}
+				else{
+					runner = runner.right;
+				}
+			}
+		}
+	}
 }
