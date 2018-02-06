@@ -1366,8 +1366,13 @@ function getDigits(str){ // given "s8f75d8s9f62" return 8758962
 	return sum
 }
 
-function isPalindrome(str){ // check to see if str is palindome, return true false
-
+function isPalindrome(str){ 
+	for(let i = 0; i < str.length/2; i++){
+		if(str[i] !== str[str.length - 1 - i]){
+			return false;
+		}
+	}
+	return true;
 }
 
 function romanNumToNum(str) { // given a valid string return the value as an integer, using dictionary in convert function below
