@@ -1,3 +1,5 @@
+// During the interview, we’ll ask you to write code. We love to ask questions related to linked lists, arrays, pointers, and such.
+
 // Reverse a doubly linked list
 
 // Reverse words in a sentence
@@ -27,4 +29,6 @@
 // Given a linked list, put all the odd elements in lexicographical order list in front of the even elements in lexicographical order in place
 
 // Design chess using OOP
+
+// https://www.glassdoor.com/Interview/InConsulting-Interview-Questions-E1309800.htm
 
