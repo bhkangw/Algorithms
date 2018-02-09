@@ -55,3 +55,35 @@ var isPalindrome = function (x) {
 	}
 	return false;
 };
+
+// Javascript String Reference
+// LONGEST COMMON PREFIX ? 
+
+str.substr(start, length) // extracts the characters from a string, beginning at a specified start position, and through given length
+// e.g. "hello".substr(0, 3) = "hel"
+
+str.substring(start, end) // extracts the characters from a string, between two specified indices
+// e.g. "hello".substr(2, 4) = "llo"
+
+str.startsWith("Hello") // check if a string starts with "Hello", returns boolean
+
+str.slice(start, end) // extract parts of a string. 
+// end = optional. The position (up to, but NOT including) where to end the extraction. If omitted, slice() selects all characters from the start-position to the end of the string
+// e.g. "hello".slice(1,3) = "lo"
+
+str.indexOf() // method returns the position of the first occurrence of a specified value in a string
+// method returns -1 if value doesn't exist
+// e.g. "hello world".indexOf("world") = 6
+
+str.lastIndexOf() // method returns the position of the last occurrence of a specified value in a string
+// method returns -1 if value doesn't exist
+// e.g. "hello world world world".indexOf("world") = 18
+
+str.includes() // method checks if a string includes given value, returns boolean
+// e.g. "hello world".includes("planet") = false
+
+str.endsWith() // method checks if a string ends with given value, returns boolean
+
+str1.concat(str2, str3) // joins two or more strings
+
+str.charCodeAt(index) // Return the Unicode of the index of a string

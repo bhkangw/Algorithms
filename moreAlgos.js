@@ -32,3 +32,6 @@
 
 // https://www.glassdoor.com/Interview/InConsulting-Interview-Questions-E1309800.htm
 
+// Write a function to find the longest common prefix string amongst an array of strings.
+	// use tries?
+
