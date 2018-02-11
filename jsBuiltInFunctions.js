@@ -56,7 +56,7 @@ var isPalindrome = function (x) {
 	return false;
 };
 
-// Javascript String Reference
+// Javascript String Methods
 // LONGEST COMMON PREFIX ? 
 
 str.substr(start, length) // extracts the characters from a string, beginning at a specified start position, and through given length
@@ -86,4 +86,27 @@ str.endsWith() // method checks if a string ends with given value, returns boole
 
 str1.concat(str2, str3) // joins two or more strings
 
-str.charCodeAt(index) // Return the Unicode of the index of a string
+str.charCodeAt(index) // return the Unicode of the index of a string
+
+// Javascript Array Methods
+
+arr1.concat(arr2) // joins two or more arrays, and returns a copy of the joined arrays
+
+// STAIRCASE
+
+str.repeat(count) // method constructs and returns a new string which contains the specified number of copies of the string
+// E.g "abc".repeat(3) -> "abcabcabc"
+
+// example: 
+function staircase(n) {
+	for (let i = 1; i <= n; i++) {
+		console.log(" ".repeat(n - i) + "#".repeat(i));
+	}
+}
+// n = 6 => would print
+//      #
+//     ##
+//    ###
+//   ####
+//  #####
+// ######

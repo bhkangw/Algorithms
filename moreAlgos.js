@@ -46,3 +46,87 @@ function findMultiplesToVal(arr, val) {
 		dict[i] = i; // if not, add the integer into the dict
 	}
 }
+
+// Given an array representing a number, add one and return the array
+// E.g. [1,2,3,4] -> [1,2,3,5]
+// E.g. [9,9,9] -> [1,0,0,0]
+function addone(arr) {
+	let carry = 1;
+	for (let i = arr.length - 1; i >= 0; i--) {
+		let total = arr[i] + carry;
+		if (total === 10) {
+			carry = 1;
+			arr[i] = 0;
+		}
+		else {
+			carry = 0;
+			arr[i]++
+			return arr;
+		}
+	}
+	if (carry = 1) {
+		// option 1: create a new arr
+		// return newarr = [1].concat(arr); 
+		// option 2: increase length of arr
+		arr.push(0);
+		arr[0] = 1;
+		return arr;
+	}
+}
+
+// IC #1: Return the max profit of a trading stock from the previous day's prices
+// Tips: using a greedy approach, finding the best answer as you go
+function getMaxProfit(stockPrices) {
+	if (stockPrices.length < 2) {
+		throw new error("Getting a profit needs at least 2 prices");
+	}
+	let minPrice = stockPrices[0];
+	let maxProfit = stockPrices[1] - stockPrices[0];
+	for (let i = 1; i < stockPrices.length; i++) {
+		let currentPrice = stockPrices[i];
+		let potentialProfit = currentPrice - minPrice
+		maxProfit = Math.max(maxProfit, potentialProfit)
+		minPrice = Math.min(minPrice, currentPrice)
+	}
+	return maxProfit;
+}
+
+// IC #2: Find the products of all the integers except the integer at each index
+// E.g. [2,3,4] -> [12,8,6]
+// Tips: another greedy approach. except we solve it in 2 passes instead of 1
+// Start with a brute force solution, look for repeat work in that solution, and modify it to only do that work once.
+function getProductsOfAllIntsExceptAtIndex(arr) {
+	let productsExcept = [];
+	let productSoFar = 1;
+	for (let i = 0; i < arr.length; i++) {
+		productsExcept[i] = productSoFar;
+		productSoFar *= arr[i];
+	}
+	productSoFar = 1;
+	for (let j = arr.length - 1; j >= 0; j--) {
+		productsExcept[j] *= productSoFar
+		productSoFar *= arr[j];
+	}
+	return productsExcept;
+}
+
+// IC #3: Given an array of integers, find the highest product you can get from three of the integers.
+// E.g [1,10,-5,1,-100] -> 5000
+// Tips: another greedy approach. similar to stock question but this one needs four things to calculate highestProductOf3 at each step
+function threeMaxProduct(arr) {
+	let highestProductOf3 = arr[0] * arr[1] * arr[2];
+	let highestProductOf2 = arr[0] * arr[1];
+	let lowestProductOf2 = arr[0] * arr[1];
+	let highest = Math.max(arr[0], arr[1]);
+	let lowest = Math.min(arr[0], arr[1]);
+	for (let i = 2; i < arr.length; i++) {
+		let current = arr[i];
+		// order matters! so you don't end up multiplying the current number by itself to get a new highestProductOf3.
+		highestProductOf3 = Math.max(highestProductOf3, highestProductOf2 * current, lowestProductOf2 * current);
+		highestProductOf2 = Math.max(highestProductOf2, highest * current, lowest * current);
+		lowestProductOf2 = Math.min(lowestProductOf2, highest * current, lowest * current);
+		highest = Math.max(highest, current);
+		lowest = Math.min(lowest, current);
+	}
+	return highestProductOf3;
+}
