@@ -803,15 +803,24 @@ function rFactorial(n){
 
 // December 5 
 
-function rFibonacci(n){
-	if(n == 2){
+function rFibonacci(n) {
+	if (n <= 1) {
 		return 1;
 	}
-	if(n == 1){
-		return 0;
-	}
-	return rFibonacci(n-1) + rFibonacci(n-2)
+	return rFibonacci(n - 1) + rFibonacci(n - 2)
 }
+
+// Doesn't work
+// function rFibonacci(n){
+// 	if(n == 2){
+// 		return 1;
+// 	}
+// 	if(n == 1){
+// 		return 0;
+// 	}
+// 	return rFibonacci(n-1) + rFibonacci(n-2)
+// }
+
 
 // December 6
 // Introducing Memoization

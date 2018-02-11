@@ -35,3 +35,14 @@
 // Write a function to find the longest common prefix string amongst an array of strings.
 	// use tries?
 
+// Given a number n, find two integers in array whose product = n 
+// E.g val = 20, arr = [3,6,2,4,9,10], return [2,10]
+function findMultiplesToVal(arr, val) {
+	let dict = {};
+	for (let i of arr) { // iterating through where i is the value *FOR OF*
+		if (dict[val / i] !== undefined) { // check to see if the multiplier of i to get to val already exists in dict
+			return [i, dict[val / i]] // if so return the pair
+		}
+		dict[i] = i; // if not, add the integer into the dict
+	}
+}
