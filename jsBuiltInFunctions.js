@@ -34,7 +34,7 @@ toString() // turns an integer into a string
 
 parseInt(num) // turns a string back into an integer
 
-Math.sign(num) // grabs the sign of the number, holds either a -1 or 1
+Math.sign(string) // grabs the sign of the number, holds either a -1 or 1
 
 function reverseInt(x) {
 	let sign = Math.sign(x)
@@ -88,9 +88,31 @@ str1.concat(str2, str3) // joins two or more strings
 
 str.charCodeAt(index) // return the Unicode of the index of a string
 
+str.toUpperCase() // converts to uppercase
+
+// example:
+function camelcase(s) {
+	let count = 1;
+	for (let i of s) {
+		if (i === i.toUpperCase()) {
+			count++
+		}
+	}
+	return count;
+}
+
 // Javascript Array Methods
 
 arr1.concat(arr2) // joins two or more arrays, and returns a copy of the joined arrays
+
+arr.push.apply(arr1, arr2) // combines two arrays (merges the second arr into the first one)
+// example:
+function mergeArray(arr1, arr2){
+	var arr1 = [1, 2, 3];
+	var arr2 = [4, 5, 6];
+	Array.prototype.push.apply(arr1, arr2);
+	console.log(arr1); // is: [1, 2, 3, 4, 5, 6]
+}
 
 // STAIRCASE
 
@@ -110,3 +132,20 @@ function staircase(n) {
 //   ####
 //  #####
 // ######
+
+// Min-Max Sum
+//
+function miniMaxSum(arr) {
+	let sortedArr = arr.sort()
+	let min = sortedArr[0];
+	let max = sortedArr[4];
+	for (let i = 1; i < 4; i++) {
+		min += sortedArr[i];
+		max += sortedArr[i];
+	}
+	console.log(min + " " + max)
+}
+
+// HACKERRANK OUTPUT TIPS
+process.stdout.write("" + result + "\n"); // usually means RETURN
+join() // usually means ARRAY 

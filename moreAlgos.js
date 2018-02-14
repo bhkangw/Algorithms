@@ -130,3 +130,18 @@ function threeMaxProduct(arr) {
 	}
 	return highestProductOf3;
 }
+
+// IC #4: Merging Meeting Times
+function mergingMeetingTimes(arr){
+
+}
+
+// BONUS: Ternary Operator
+// Ternary Operator is used as shorthand for an if...else statement.
+// i.e. (condition) ? expression on true : expression on false
+// e.g. var oldEnough = (age >= 21) ? "You may enter." : "You may not enter.";
+
+// IC #5: Making Change
+function makingChange(amount, coins){
+	
+}
