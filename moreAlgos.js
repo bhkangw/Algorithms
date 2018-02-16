@@ -35,7 +35,7 @@
 // Write a function to find the longest common prefix string amongst an array of strings.
 	// use tries?
 
-// Given a number n, find two integers in array whose product = n 
+// Given a number val, find two integers in array whose product = val
 // E.g val = 20, arr = [3,6,2,4,9,10], return [2,10]
 function findMultiplesToVal(arr, val) {
 	let dict = {};
@@ -45,6 +45,20 @@ function findMultiplesToVal(arr, val) {
 		}
 		dict[i] = i; // if not, add the integer into the dict
 	}
+}
+
+// Given a sum, find two integers in array whose sum = sum
+function sumTwo(arr, sum){
+    let dict = {};
+    for(let i = 0; i < arr.length; i++){
+        if(dict[sum-arr[i]]){
+            return [sum-arr[i], arr[i]];
+        }
+        else{
+            dict[arr[i]] = arr[i];
+        }
+    }
+    return "none"
 }
 
 // Given an array representing a number, add one and return the array
