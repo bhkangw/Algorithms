@@ -159,3 +159,12 @@ function mergingMeetingTimes(arr){
 function makingChange(amount, coins){
 	
 }
+
+// You have 10 numbers 1 to 10. Find all possible combinations of the sum of 17.
+// e.g 9+8, 9+7+1, 3+6+8, and 3+6+1+7
+
+// Reverse a singly linked list
+
+// Write a function to check if a linked list is a palindrome
+
+//
